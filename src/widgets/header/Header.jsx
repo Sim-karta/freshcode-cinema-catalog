@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { SiWondersharefilmora } from 'react-icons/si'
 import styles from './Header.module.sass'
@@ -14,6 +14,7 @@ function Header () {
           <li className={styles.listItem}>Films</li>
           <li className={styles.listItem}>Actors</li>
           <li className={styles.listItem}>Studios</li>
+          <li className={styles.listItem}>Directors</li>
         </ul>
         <div className={styles.searchWrap}>
           {isOpen && (
@@ -27,12 +28,15 @@ function Header () {
           )}
           <button
             className={`${styles.navBtn} `}
-            onClick={e => setIsOpen(!isOpen)}
+            onMouseDown={e => e.preventDefault()}
+            onClick={() => setIsOpen(!isOpen)}
           >
             <FaSearch />
           </button>
         </div>
-        <button className={styles.navBtn}>Sign in</button>
+        <button className={`${styles.navBtn} ${styles.signInBtn}`}>
+          Sign in
+        </button>
       </nav>
     </div>
   )

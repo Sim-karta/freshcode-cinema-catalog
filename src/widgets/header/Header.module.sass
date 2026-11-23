@@ -10,17 +10,33 @@
 .headContainer
     background: black
     color: white
-    width: 100vw
+    width: 100%
     min-height: 60px
     height: 100%
     padding: 20px 120px
+    position: sticky
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1000
+
 
 .navContainer
     display: grid
-    grid-template-columns: 100px 1fr 100px 100px
+    grid-template-columns: 100px 200px 1fr auto
     grid-column-gap: 16px
     align-items: center
-        
+
+    @media screen and (max-width: 800px) 
+        position: static
+        transform: none
+        width: 100%
+
+.searchWrap
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    gap: 8px
 
 .listContainer
     list-style: none
@@ -31,6 +47,7 @@
     .listItem:hover
         cursor: pointer
         color: #a5a5a5
+
 
 .navBtn
     height: 30px
@@ -44,7 +61,7 @@
         color: #a5a5a5
 
 .searchNavInput
-    height: 50px
-    width: 700px
-    position: absolute
-    left: 40%
+    flex: 1
+    height:40px
+    width: auto
+    max-width: 700px

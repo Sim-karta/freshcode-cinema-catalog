@@ -15,19 +15,23 @@ function Header () {
           <li className={styles.listItem}>Actors</li>
           <li className={styles.listItem}>Studios</li>
         </ul>
-        {isOpen && (
-          <input
-            className={styles.searchNavInput}
-            type='search'
-            placeholder='Search'
-          />
-        )}
-        <button
-          className={`${styles.navBtn} `}
-          onClick={e => setIsOpen(!isOpen)}
-        >
-          <FaSearch />
-        </button>
+        <div className={styles.searchWrap}>
+          {isOpen && (
+            <input
+              className={styles.searchNavInput}
+              type='search'
+              placeholder='Search'
+              autoFocus
+              onBlur={() => setIsOpen(false)}
+            />
+          )}
+          <button
+            className={`${styles.navBtn} `}
+            onClick={e => setIsOpen(!isOpen)}
+          >
+            <FaSearch />
+          </button>
+        </div>
         <button className={styles.navBtn}>Sign in</button>
       </nav>
     </div>

@@ -5,16 +5,32 @@ import styles from './Header.module.sass'
 
 function Header () {
   const [isOpen, setIsOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <div className={styles.headContainer}>
+    <header className={styles.headContainer}>
       <nav className={styles.navContainer}>
         <SiWondersharefilmora className={styles.headTestLogo} />
-        <ul className={styles.listContainer}>
-          <li className={styles.listItem}>Films</li>
-          <li className={styles.listItem}>Actors</li>
-          <li className={styles.listItem}>Studios</li>
-          <li className={styles.listItem}>Directors</li>
+
+        <ul
+          className={`${styles.listContainer} ${
+            isMenuOpen ? styles.openMenu : ''
+          }`}
+        >
+          <li onClick={closeMenu} className={styles.listItem}>
+            Films
+          </li>
+          <li onClick={closeMenu} className={styles.listItem}>
+            Actors
+          </li>
+          <li onClick={closeMenu} className={styles.listItem}>
+            Studios
+          </li>
+          <li onClick={closeMenu} className={styles.listItem}>
+            Directors
+          </li>
         </ul>
         <div className={styles.searchWrap}>
           {isOpen && (
@@ -27,7 +43,7 @@ function Header () {
             />
           )}
           <button
-            className={`${styles.navBtn} `}
+            className={styles.navBtn}
             onMouseDown={e => e.preventDefault()}
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -37,8 +53,19 @@ function Header () {
         <button className={`${styles.navBtn} ${styles.signInBtn}`}>
           Sign in
         </button>
+
+        <button
+          className={`${styles.burgerBtn} ${
+            isMenuOpen ? styles.activeBurger : ''
+          }`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label='Menu'
+          aria-expanded={isMenuOpen}
+        >
+          <span></span>
+        </button>
       </nav>
-    </div>
+    </header>
   )
 }
 

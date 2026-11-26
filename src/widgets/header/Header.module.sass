@@ -4,20 +4,23 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     
 .headTestLogo
-    height: 40px
-    width: 40px
+    height: 50px
+    width: 50px
+    // display: flex
+    // align-self: flex-start
+    @media screen and (max-width: 800px) 
+        margin-right: auto  
+    
 
 .headContainer
-    background: black
+    background: #292929
     color: white
     width: 100%
-    min-height: 60px
-    height: 100%
-    padding: 20px 120px
+    // min-height: 60px
+    // height: 100%
+    padding: 20px 40px 30px 20px
     position: sticky
     top: 0
-    left: 0
-    right: 0
     z-index: 1000
 
 
@@ -28,47 +31,50 @@
     align-items: center
 
     @media screen and (max-width: 800px) 
-        position: static
-        width: 100%
         display: flex
-        flex-direction: column
+        justify-content: flex-end
 
 
 
 .listContainer
     list-style: none
     display: flex
-    align-items: center
     justify-content: center
     gap: 20px
-    width: 200px
-    padding: 20px
+    // width: 200px
+    // padding: 20px 100px
 
     .listItem:hover
         cursor: pointer
         color: #a5a5a5
 
+    @media screen and (max-width: 800px)
+        position: fixed
+        top: 0
+        left: 0
+        width: 300px
+        height: 100%
+        padding: 80px 20px
+        flex-direction: column
+        justify-content: flex-start
+        background: #292929
+        transform: translateX(-100%)
+        transition: transform 0.3s
+        &.openMenu
+            transform: translateX(0)
+
 
 .navBtn
     height: 30px
-    max-width: 50px
-    width: 100%
     border: none
     color: white
     background: none
+    cursor: pointer
     &:hover
-        cursor: pointer
         color: #a5a5a5
     
-    
-.signInBtn 
-    @media screen and (max-width: 800px)
-        position: absolute
-        top: 20px
-        right: 20px
-
-
-
+.signInBtn
+    padding: 0 10px
 
 .searchWrap
     display: flex
@@ -77,7 +83,44 @@
     gap: 8px
 
 .searchNavInput
-    flex: 1
     height:40px
-    width: auto
-    max-width: 900px
+    width: 100%
+    max-width: 300px
+    @media screen and (max-width: 800px) 
+        max-width: 160px
+
+.burgerBtn
+    display: none
+    position: relative
+    width: 30px
+    height: 30px
+    border: none
+    background: none
+    cursor: pointer
+    z-index: 1001
+
+    @media screen and (max-width: 800px) 
+        display: block
+    > span,
+    > span::before,
+    > span::after
+      display: block
+      position: absolute
+      width: 100%
+      height: 2px
+      background: #ffffff
+
+
+
+    >span
+     top: 50%
+     left: 0
+
+
+    > span::before
+      content: ""
+      top: -8px
+
+    > span::after
+      content: ""
+      top: 8px

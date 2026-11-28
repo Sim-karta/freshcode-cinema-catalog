@@ -1,13 +1,8 @@
-import HomePage from '../pages/home/ui/HomePage'
+import { RouterProvider } from 'react-router'
+import { router } from './router/Router'
 
 function App () {
-  return (
-    <>
-      <main className='app'>
-        <HomePage />
-      </main>
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

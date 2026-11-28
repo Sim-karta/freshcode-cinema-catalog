@@ -5,6 +5,7 @@ import MoviesPage from '../../pages/movies/ui/MoviesPage'
 import ActorsPage from '../../pages/actors/ui/ActorsPage'
 import DirectorsPage from '../../pages/directors/ui/DirectorsPage'
 import StudiosPage from '../../pages/studios/ui/StudiosPage'
+import NotFoundPage from '../../pages/notFound/notFoundPage'
 
 export const router = createBrowserRouter([
   {
@@ -31,5 +32,9 @@ export const router = createBrowserRouter([
         element: <StudiosPage />
       }
     ]
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />
   }
 ])
